@@ -1,0 +1,10 @@
+
+body {font-family:arial; font-size:14px; color:#333; background:#F2F2F2;}
+.panel {margin:0 auto; max-width:300px; padding-bottom:160px;}
+.panel .line {width:100%; margin:0 0 20px 0;}
+.panel .line label {width:100%;}
+.panel .line .input {box-shadow:0 1px 2px rgba(0,0,0,0.1); border-radius:3px; background:#FFF; margin:4px 0 0 0; }
+input {width:100%; height:28px; line-height:28px; border:0; padding:0 8px; margin:0; border-radius:3px; outline:none;}
+.panel .title {text-align:center; font-weight:bold; margin:40px 0 20px;}
+
+#signature {width:calc(90% - 40px); max-width:500px; position:fixed; bottom:20px; right:20px; background:#FFF; padding:20px; box-shadow:0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);}
