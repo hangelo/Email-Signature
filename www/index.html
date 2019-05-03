@@ -53,6 +53,11 @@
         </div>
         <div class="title">Company information</div>
         <div class="line">
+            <label>Company name
+                <div class="input"><input type="text" id="companyname"></div>
+            </label>
+        </div>
+        <div class="line">
             <label>Website
                 <div class="input"><input type="text" id="website"></div>
             </label>
@@ -244,10 +249,13 @@
             var _email = email.input_object.value;
             var _phone = phone.input_object.value;
             var _mobile = mobile.input_object.value;
+
+            var _companyname = companyname.input_object.value;
             var _website = website.input_object.value;
             var _address1 = address1.input_object.value;
             var _address2 = address2.input_object.value;
             var _logo = logo.input_object.value;
+
             var _colortext = colortext.input_object.value;
             var _colorverticalline = colorverticalline.input_object.value;
 
@@ -264,7 +272,7 @@
             var html_bitbucket = bitbucket.GetHtmlString();
             var html_spotify = spotify.GetHtmlString();
             var html_whatsapp = whatsapp.GetHtmlString();
-            var _socialmedia ''
+            var _socialmedia = ''
                 + html_googleplus
                 + html_facebook
                 + html_linkedin
@@ -279,48 +287,65 @@
                 + html_spotify
                 + html_whatsapp;
 
+            var _style_tag_a = 'color:#3B69BC !important; text-decoration:none !important;';
+
             // Format the HTML of the signature
             var signature = '';
+
             signature += '<table cellpadding="0" cellspacing="0" style="color:' + _colortext + '; font-family:sans-serif; font-size:12px;">';
             signature += '<tr>';
             if (_logo) {
-                signature += '    <td rowspan="4"><img src="' + _logo + '" style="max-width:120px; padding:0 12px 0 0;" /></td>';
+                signature += '<td>';
+                signature += '<a href="' + _website + '" target="_blank" style="' + _style_tag_a + '"><img src="' + _logo + '" style="max-width:120px; padding:0 12px 0 0;" /></a>';
+                signature += '</td>';
             }
-            signature += '    <td style="line-height:18px; height:18px; background:' + _colorverticalline + '; width:2px;"></td>';
-            signature += '    <td style="line-height:18px; height:18px; width:12px;"></td>';
-            signature += '    <td style="line-height:18px; height:18px;">';
+            signature += '<td>';
+
+            signature += '<table cellpadding="0" cellspacing="0" style="color:' + _colortext + '; font-family:sans-serif; font-size:12px;">';
+            signature += '<tr>';
+            signature += '<td style="line-height:18px; height:18px; background:' + _colorverticalline + '; width:2px;"></td>';
+            signature += '<td style="line-height:18px; height:18px; width:12px;"></td>';
+            signature += '<td style="line-height:18px; height:18px;">';
             if (_firstname || _lastname) {
-                signature += '        <Span style="font-weight:bold; margin:0 8px 0 0;">' + _firstname + (_firstname && _lastname ? ' ' : '') + _lastname + '</Span>';
+                signature += '    <Span style="font-weight:bold; margin:0 8px 0 0;">' + _firstname + (_firstname && _lastname ? ' ' : '') + _lastname + '</Span>';
             }
-            if (_jobtitle) {
-                signature += '        <span style="font-style:italic;">' + _jobtitle + '</span>';
-            }
-            signature += '    </td>';
+            signature += '</td>';
             signature += '</tr>';
-            if (_mobile || _phone) {
+            if (_jobtitle || _companyname) {
                 signature += '<tr>';
-                signature += '    <td style="line-height:18px; height:18px; padding:0 0 6px 0; background:' + _colorverticalline + '; width:2px;"></td>';
-                signature += '    <td style="line-height:18px; height:18px; padding:0 0 6px 0; width:12px;"></td>';
-                signature += '    <td style="line-height:18px; height:18px; padding:0 0 6px 0;">';
-                signature += '        <Span>' + (_mobile ? 'Mobile: ' + _mobile : '') + (_mobile && _phone ? ' | ' : '') + (_phone? 'Phone' + _phone : '') + '</Span>';
-                signature += '    </td>';
+                signature += '<td style="line-height:18px; height:18px; padding:0 0 6px 0; background:' + _colorverticalline + '; width:2px;"></td>';
+                signature += '<td style="line-height:18px; height:18px; padding:0 0 6px 0; width:12px;"></td>';
+                signature += '<td style="line-height:18px; height:18px; padding:0 0 6px 0;">';
+                signature += '    <span style="font-style:italic;">' + _jobtitle + '</span>' + (_jobtitle && _companyname ? ', ' : '') + '<span>' + _companyname + '</span>';
+                signature += '</td>';
                 signature += '</tr>';
             }
-            if (_email || _website) {
+            if (_address1) {
                 signature += '<tr>';
-                signature += '    <td style="line-height:18px; height:18px; background:' + _colorverticalline + '; width:2px;"></td>';
-                signature += '    <td style="line-height:18px; height:18px; width:12px;"></td>';
-                signature += '    <td style="line-height:18px; height:18px;">';
+                signature += '<td style="line-height:18px; height:18px; padding:0 0 0 0; background:' + _colorverticalline + '; width:2px;"></td>';
+                signature += '<td style="line-height:18px; height:18px; padding:0 0 0 0; width:12px;"></td>';
+                signature += '<td style="line-height:18px; height:18px; padding:0 0 0 0;">';
+                signature += '    <span>' + _address1 + '</span>';
+                signature += '</td>';
+                signature += '</tr>';
+            }
+            if (_email || _website || _mobile || _phone) {
+                signature += '<tr>';
+                signature += '<td style="line-height:18px; height:18px; background:' + _colorverticalline + '; width:2px;"></td>';
+                signature += '<td style="line-height:18px; height:18px; width:12px;"></td>';
+                signature += '<td style="line-height:18px; height:18px;">';
+                signature += '    <Span>' + _mobile + (_mobile && _phone ? ' | ' : '') + _phone + '</Span>';
+                signature += '    <span style="margin:0 8px; color:' + _colorverticalline + ';">|</span>';
                 if (_email) {
-                    signature += '        <a style="color:#3B69BC !important;" href="mailto:hangelo.ca@gmail.com">' + _email + '</a>';
+                    signature += '    <a style="' + _style_tag_a + '" href="mailto:hangelo.ca@gmail.com">' + _email + '</a>';
                 }
                 if (_email && _website) {
-                    signature += '        <span style="margin:0 8px; color:' + _colorverticalline + ';">|</span>';
+                    signature += '    <span style="margin:0 8px; color:' + _colorverticalline + ';">|</span>';
                 }
                 if (_website) {
-                    signature += '        <a style="color:#3B69BC !important;" href="' + _website + '">' + _website + '</a></div>';
+                    signature += '    <a style="' + _style_tag_a + '" href="' + _website + '">' + _website + '</a></div>';
                 }
-                signature += '    </td>';
+                signature += '</td>';
                 signature += '</tr>';
             }
             if (_socialmedia) {
@@ -332,6 +357,9 @@
                 signature += '    </td>';
                 signature += '</tr>';
             }
+            signature += '            </table>';
+            signature += '        </td>';
+            signature += '    </tr>';
             signature += '</table>';
 
             // Put the formated html into the signature box
@@ -373,6 +401,12 @@
         var mobile = {
             placeholder: '+1 123-456-7890',
             input_object: document.getElementById('mobile'),
+            initiate: Initiate
+        }
+
+        var companyname = {
+            placeholder: 'My Company',
+            input_object: document.getElementById('companyname'),
             initiate: Initiate
         }
 
@@ -537,6 +571,7 @@
         phone.initiate();
         mobile.initiate();
 
+        companyname.initiate();
         website.initiate();
         address1.initiate();
         address2.initiate();
