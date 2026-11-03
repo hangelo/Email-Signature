@@ -1,91 +1,117 @@
 
+var fields = [
+    {
+        id: 'firstName',
+        label: 'First Name'
+    },
+    {
+        id: 'lastName',
+        label: 'Last Name'
+    },
+];
+
+fields.forEach(element => {
+    element.initiateObject = InitiateObject;
+    element.inputObject = null;
+    element.placeHolder = '';
+});
+
+
 // The objects to interpret the html elements on the page
 var firstname = {
     placeholder: '',
     object_id: 'firstname',
     object_label: 'firstname',
-    input_object: null,
-    initiate: Initiate
+    inputObject: null,
+    initiateObject: InitiateObject
 }
 
 var lastname = {
     placeholder: '',
     object_id: 'lastname',
     object_label: 'lastname',
-    input_object: null,
-    initiate: Initiate
+    inputObject: null,
+    initiateObject: InitiateObject
 }
 
 var jobtitle = {
     placeholder: 'Your job position',
     object_id: 'jobtitle',
     object_label: 'jobtitle',
-    input_object: null,
-    initiate: Initiate
+    inputObject: null,
+    initiateObject: InitiateObject
 }
 
 var email = {
     placeholder: 'myemail@mywebsite.com',
     object_id: 'email',
     object_label: 'email',
-    input_object: null,
-    initiate: Initiate
+    inputObject: null,
+    initiateObject: InitiateObject
 }
 
 var phone = {
     placeholder: '+1 123-456-7890',
     object_id: 'phone',
     object_label: 'phone',
-    input_object: null,
-    initiate: Initiate
+    inputObject: null,
+    initiateObject: InitiateObject
 }
 
 var mobile = {
     placeholder: '+1 123-456-7890',
     object_id: 'mobile',
     object_label: 'mobile',
-    input_object: null,
-    initiate: Initiate
+    inputObject: null,
+    initiateObject: InitiateObject
 }
 
 var companyname = {
     placeholder: 'My Company',
     object_id: 'companyname',
     object_label: 'companyname',
-    input_object: null,
-    initiate: Initiate
+    inputObject: null,
+    initiateObject: InitiateObject
+}
+
+var department = {
+    placeholder: 'Company\'s department',
+    object_id: 'department',
+    object_label: 'department',
+    inputObject: null,
+    initiateObject: InitiateObject
 }
 
 var website = {
     placeholder: 'https://www.mywebsite.com',
     object_id: 'website',
     object_label: 'website',
-    input_object: null,
-    initiate: Initiate
+    inputObject: null,
+    initiateObject: InitiateObject
 }
 
 var address1 = {
     placeholder: '123 The Avenue',
     object_id: 'address1',
     object_label: 'address1',
-    input_object: null,
-    initiate: Initiate
+    inputObject: null,
+    initiateObject: InitiateObject
 }
 
 var address2 = {
     placeholder: 'Suite 234',
     object_id: 'address2',
     object_label: 'address2',
-    input_object: null,
-    initiate: Initiate
+    inputObject: null,
+    initiateObject: InitiateObject
 }
 
 var logo = {
     placeholder: 'https://www.mycompany.com/logo.png',
     object_id: 'logo',
     object_label: 'logo',
-    input_object: null,
-    initiate: Initiate
+    inputObject: null,
+    initiateObject: InitiateObject
 }
 
 var googleplus = {
@@ -93,9 +119,9 @@ var googleplus = {
     icon: 'https://s3.ca-central-1.amazonaws.com/img.henriqueangelo.com/email-signature/social-media/googleplus.png',
     object_id: 'googleplus',
     object_label: 'googleplus',
-    input_object: null,
-    GetHtmlString: DoGetHtmlString,
-    initiate: Initiate
+    inputObject: null,
+    GetHtmlString: DoGetSocialMediaHtmlCode,
+    initiateObject: InitiateObject
 };
 
 var facebook = {
@@ -103,9 +129,9 @@ var facebook = {
     icon: 'https://s3.ca-central-1.amazonaws.com/img.henriqueangelo.com/email-signature/social-media/facebook.png',
     object_id: 'facebook',
     object_label: 'facebook',
-    input_object: null,
-    GetHtmlString: DoGetHtmlString,
-    initiate: Initiate
+    inputObject: null,
+    GetHtmlString: DoGetSocialMediaHtmlCode,
+    initiateObject: InitiateObject
 };
 
 var linkedin = {
@@ -113,9 +139,9 @@ var linkedin = {
     icon: 'https://s3.ca-central-1.amazonaws.com/img.henriqueangelo.com/email-signature/social-media/linkedin.png',
     object_id: 'linkedin',
     object_label: 'linkedin',
-    input_object: null,
-    GetHtmlString: DoGetHtmlString,
-    initiate: Initiate
+    inputObject: null,
+    GetHtmlString: DoGetSocialMediaHtmlCode,
+    initiateObject: InitiateObject
 };
 
 var twitter = {
@@ -123,9 +149,9 @@ var twitter = {
     icon: 'https://s3.ca-central-1.amazonaws.com/img.henriqueangelo.com/email-signature/social-media/twitter.png',
     object_id: 'twitter',
     object_label: 'twitter',
-    input_object: null,
-    GetHtmlString: DoGetHtmlString,
-    initiate: Initiate
+    inputObject: null,
+    GetHtmlString: DoGetSocialMediaHtmlCode,
+    initiateObject: InitiateObject
 };
 
 var instagram = {
@@ -133,9 +159,9 @@ var instagram = {
     icon: 'https://s3.ca-central-1.amazonaws.com/img.henriqueangelo.com/email-signature/social-media/instagram.png',
     object_id: 'instagram',
     object_label: 'instagram',
-    input_object: null,
-    GetHtmlString: DoGetHtmlString,
-    initiate: Initiate
+    inputObject: null,
+    GetHtmlString: DoGetSocialMediaHtmlCode,
+    initiateObject: InitiateObject
 };
 
 var skype = {
@@ -143,9 +169,9 @@ var skype = {
     icon: 'https://s3.ca-central-1.amazonaws.com/img.henriqueangelo.com/email-signature/social-media/skype.png',
     object_id: 'skype',
     object_label: 'skype',
-    input_object: null,
-    GetHtmlString: DoGetHtmlString,
-    initiate: Initiate
+    inputObject: null,
+    GetHtmlString: DoGetSocialMediaHtmlCode,
+    initiateObject: InitiateObject
 };
 
 var youtube = {
@@ -153,9 +179,9 @@ var youtube = {
     icon: 'https://s3.ca-central-1.amazonaws.com/img.henriqueangelo.com/email-signature/social-media/youtube.png',
     object_id: 'youtube',
     object_label: 'youtube',
-    input_object: null,
-    GetHtmlString: DoGetHtmlString,
-    initiate: Initiate
+    inputObject: null,
+    GetHtmlString: DoGetSocialMediaHtmlCode,
+    initiateObject: InitiateObject
 };
 
 var pinterest = {
@@ -163,9 +189,9 @@ var pinterest = {
     icon: 'https://s3.ca-central-1.amazonaws.com/img.henriqueangelo.com/email-signature/social-media/pinterest.png',
     object_id: 'pinterest',
     object_label: 'pinterest',
-    input_object: null,
-    GetHtmlString: DoGetHtmlString,
-    initiate: Initiate
+    inputObject: null,
+    GetHtmlString: DoGetSocialMediaHtmlCode,
+    initiateObject: InitiateObject
 };
 
 var github = {
@@ -173,9 +199,9 @@ var github = {
     icon: 'https://s3.ca-central-1.amazonaws.com/img.henriqueangelo.com/email-signature/social-media/github.png',
     object_id: 'github',
     object_label: 'github',
-    input_object: null,
-    GetHtmlString: DoGetHtmlString,
-    initiate: Initiate
+    inputObject: null,
+    GetHtmlString: DoGetSocialMediaHtmlCode,
+    initiateObject: InitiateObject
 };
 
 var stackoverflow = {
@@ -183,9 +209,9 @@ var stackoverflow = {
     icon: 'https://s3.ca-central-1.amazonaws.com/img.henriqueangelo.com/email-signature/social-media/stackoverflow.png',
     object_id: 'stackoverflow',
     object_label: 'stackoverflow',
-    input_object: null,
-    GetHtmlString: DoGetHtmlString,
-    initiate: Initiate
+    inputObject: null,
+    GetHtmlString: DoGetSocialMediaHtmlCode,
+    initiateObject: InitiateObject
 };
 
 var bitbucket = {
@@ -193,9 +219,9 @@ var bitbucket = {
     icon: 'https://s3.ca-central-1.amazonaws.com/img.henriqueangelo.com/email-signature/social-media/bitbucket.png',
     object_id: 'bitbucket',
     object_label: 'bitbucket',
-    input_object: null,
-    GetHtmlString: DoGetHtmlString,
-    initiate: Initiate
+    inputObject: null,
+    GetHtmlString: DoGetSocialMediaHtmlCode,
+    initiateObject: InitiateObject
 };
 
 var spotify = {
@@ -203,9 +229,9 @@ var spotify = {
     icon: 'https://s3.ca-central-1.amazonaws.com/img.henriqueangelo.com/email-signature/social-media/spotify.png',
     object_id: 'spotify',
     object_label: 'spotify',
-    input_object: null,
-    GetHtmlString: DoGetHtmlString,
-    initiate: Initiate
+    inputObject: null,
+    GetHtmlString: DoGetSocialMediaHtmlCode,
+    initiateObject: InitiateObject
 };
 
 var whatsapp = {
@@ -213,25 +239,25 @@ var whatsapp = {
     icon: 'https://s3.ca-central-1.amazonaws.com/img.henriqueangelo.com/email-signature/social-media/whatsapp.png',
     object_id: 'whatsapp',
     object_label: 'whatsapp',
-    input_object: null,
-    GetHtmlString: DoGetHtmlString,
-    initiate: Initiate
+    inputObject: null,
+    GetHtmlString: DoGetSocialMediaHtmlCode,
+    initiateObject: InitiateObject
 };
 
 var colortext = {
     placeholder: '#333',
     object_id: 'colortext',
     object_label: 'colortext',
-    input_object: null,
-    initiate: Initiate
+    inputObject: null,
+    initiateObject: InitiateObject
 }
 
 var colorverticalline = {
     placeholder: '#FF8400',
     object_id: 'colorverticalline',
     object_label: 'colorverticalline',
-    input_object: null,
-    initiate: Initiate
+    inputObject: null,
+    initiateObject: InitiateObject
 }
 
 
@@ -241,39 +267,39 @@ function PutFieldIntoPage()
 
     AddSubTitle('Personal information');
 
-    firstname.initiate();
-    lastname.initiate();
-    jobtitle.initiate();
-    email.initiate();
-    phone.initiate();
-    mobile.initiate();
+    firstname.initiateObject();
+    lastname.initiateObject();
+    jobtitle.initiateObject();
+    email.initiateObject();
+    phone.initiateObject();
+    mobile.initiateObject();
 
     AddSubTitle('Company information');
 
-    companyname.initiate();
-    website.initiate();
-    address1.initiate();
-    address2.initiate();
-    logo.initiate();
+    companyname.initiateObject();
+    website.initiateObject();
+    address1.initiateObject();
+    address2.initiateObject();
+    logo.initiateObject();
 
     AddSubTitle('Social media');
 
-    googleplus.initiate();
-    facebook.initiate();
-    linkedin.initiate();
-    twitter.initiate();
-    instagram.initiate();
-    skype.initiate();
-    youtube.initiate();
-    pinterest.initiate();
-    github.initiate();
-    stackoverflow.initiate();
-    bitbucket.initiate();
-    spotify.initiate();
-    whatsapp.initiate();
+    googleplus.initiateObject();
+    facebook.initiateObject();
+    linkedin.initiateObject();
+    twitter.initiateObject();
+    instagram.initiateObject();
+    skype.initiateObject();
+    youtube.initiateObject();
+    pinterest.initiateObject();
+    github.initiateObject();
+    stackoverflow.initiateObject();
+    bitbucket.initiateObject();
+    spotify.initiateObject();
+    whatsapp.initiateObject();
 
     AddSubTitle('Other configurations');
 
-    colortext.initiate();
-    colorverticalline.initiate();
+    colortext.initiateObject();
+    colorverticalline.initiateObject();
 }

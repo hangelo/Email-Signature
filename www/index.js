@@ -45,19 +45,19 @@ function DoStoreSetValues()
 }
 
 
-function DoStoreGetValues(input_object)
+function DoStoreGetValues(inputObject)
 {
     /**
     Get values from Local Storage.
 
-    :param input_object Object:
+    :param inputObject Object:
         HTML Object
     */
-    input_object.value = localStorage.getItem(input_object.getAttribute('id'));
+    inputObject.value = localStorage.getItem(inputObject.getAttribute('id'));
 }
 
 
-function Initiate()
+function InitiateObject()
 {
     /**
     Configure each element and create the HTML code to represent each element
@@ -90,14 +90,14 @@ function Initiate()
     document.getElementById('fields-panel').appendChild(div_line);
 
     // Store the object INPUT into a field to be used later
-    this.input_object = input;
+    this.inputObject = input;
 
     // Set the events
-    this.input_object.onkeyup = UpdateSignature;
-    this.input_object.onblur = DoStoreSetValues;
+    this.inputObject.onkeyup = UpdateSignature;
+    this.inputObject.onblur = DoStoreSetValues;
 
     // Get the values stored locally
-    DoStoreGetValues(this.input_object);
+    DoStoreGetValues(this.inputObject);
 }
 
 

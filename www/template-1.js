@@ -1,43 +1,38 @@
 
-
-function DoGetHtmlString()
-{
-    /**
-    IF the object have a value, format an HTML String and return it.
-
-    :return String:
-        The formated HTML
-    */
-    if (this.input_object.value == '') {
+/**
+ * Called by Change event from the social media input boxes
+ * There's no input parameters but we can use "this.inputObject"
+ * @return String
+ */
+function DoGetSocialMediaHtmlCode() {
+    if (this.inputObject.value == '') {
         return '';
     }
     var STYLE_ICONS_SOCIAL_MEDIA = 'width:18px; height:auto; margin:0 4px 0 0;';
-    return '<a href="' + this.input_object.value + '" style="text-decoration:none !important;" target="_blank"><img style="' + STYLE_ICONS_SOCIAL_MEDIA + '" src="' + this.icon + '"></a>';
+    return '<a href="' + this.inputObject.value + '" style="text-decoration:none !important;" target="_blank"><img style="' + STYLE_ICONS_SOCIAL_MEDIA + '" src="' + this.icon + '"></a>';
 }
 
 
-function UpdateSignature()
-{
-    /**
-    Update the box of the signature.
-    */
-
+/**
+ * Build the entire signature panel with the existing information
+ */
+function UpdateSignature() {
     // Get the values
-    var _firstname = firstname.input_object.value;
-    var _lastname = lastname.input_object.value;
-    var _jobtitle = jobtitle.input_object.value;
-    var _email = email.input_object.value;
-    var _phone = phone.input_object.value;
-    var _mobile = mobile.input_object.value;
+    var _firstname = firstname.inputObject.value;
+    var _lastname = lastname.inputObject.value;
+    var _jobtitle = jobtitle.inputObject.value;
+    var _email = email.inputObject.value;
+    var _phone = phone.inputObject.value;
+    var _mobile = mobile.inputObject.value;
 
-    var _companyname = companyname.input_object.value;
-    var _website = website.input_object.value;
-    var _address1 = address1.input_object.value;
-    var _address2 = address2.input_object.value;
-    var _logo = logo.input_object.value;
+    var _companyname = companyname.inputObject.value;
+    var _website = website.inputObject.value;
+    var _address1 = address1.inputObject.value;
+    var _address2 = address2.inputObject.value;
+    var _logo = logo.inputObject.value;
 
-    var _colortext = colortext.input_object.value;
-    var _colorverticalline = colorverticalline.input_object.value;
+    var _colortext = colortext.inputObject.value;
+    var _colorverticalline = colorverticalline.inputObject.value;
 
     var html_googleplus = googleplus.GetHtmlString();
     var html_facebook = facebook.GetHtmlString();
@@ -145,4 +140,3 @@ function UpdateSignature()
     // Put the formated html into the signature box
     document.getElementById('signature').innerHTML = signature;
 }
-
